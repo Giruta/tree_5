@@ -1115,6 +1115,365 @@ describe('working with BSTree structure', function () {
         });
     });
 
+    describe('set node in the BSTree', function () {
+
+        it('should return size = 8 if set el = 7 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = 7;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = 8;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-1, 0, 5, 7, 19, 25, 29, 31] if set el = 7 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = 7;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = [-1, 0, 5, 7, 19, 25, 29, 31];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 8 if set el = 30 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = 30;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = 8;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-1, 0, 5, 7, 19, 25, 29, 30, 31] if set el = 30 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = 30;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = [-1, 0, 5, 19, 25, 29, 30, 31];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 8 if set el = -5 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = -5;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = 8;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-5, -1, 0, 5, 19, 25, 29, 31] if set el = -5 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = -5;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = [-5, -1, 0, 5, 19, 25, 29, 31];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 8 if set el = 37 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = 37;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = 8;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-1, 0, 5, 19, 25, 29, 31, 37] if set el = 37 in the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
+            //Given
+            const el = 37;
+            const arr = [-1, 0, 5, 19, 25, 29, 31];
+            const expected = [-1, 0, 5, 19, 25, 29, 31, 37];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 3 if set el = -2 in the Tree = [-7, 0]', function () {
+            //Given
+            const el = -2;
+            const arr = [-7, 0];
+            const expected = 3;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-7, -2, 0] if set el = -2 in the Tree = [-7, 0]', function () {
+            //Given
+            const el = -2;
+            const arr = [-7, 0];
+            const expected = [-7, -2, 0];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 3 if set el = -12 in the Tree = [-7, 0]', function () {
+            //Given
+            const el = -12;
+            const arr = [-7, 0];
+            const expected = 3;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-12, -7, 0] if set el = -12 in the Tree = [-7, 0]', function () {
+            //Given
+            const el = -12;
+            const arr = [-7, 0];
+            const expected = [-12, -7, 0];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 3 if set el = 2 in the Tree = [-7, 0]', function () {
+            //Given
+            const el = 2;
+            const arr = [-7, 0];
+            const expected = 3;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-7, 0, 2] if set el = 2 in the Tree = [-7, 0]', function () {
+            //Given
+            const el = 2;
+            const arr = [-7, 0];
+            const expected = [-7, 0, 2];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 2 if set el = -2 in the Tree = [0]', function () {
+            //Given
+            const el = -2;
+            const arr = [0];
+            const expected = 2;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-2, 0] if set el = -2 in the Tree = [0]', function () {
+            //Given
+            const el = -2;
+            const arr = [0];
+            const expected = [-2, 0];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 2 if set el = 2 in the Tree = [0]', function () {
+            //Given
+            const el = 2;
+            const arr = [0];
+            const expected = 2;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [0, 2] if set el = 2 in the Tree = [0]', function () {
+            //Given
+            const el = 2;
+            const arr = [0];
+            const expected = [0, 2];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 1 if set el = -2 in the Tree = []', function () {
+            //Given
+            const el = -2;
+            const arr = [];
+            const expected = 1;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-2] if set el = -2 in the Tree = []', function () {
+            //Given
+            const el = -2;
+            const arr = [];
+            const expected = [-2];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = undefined if set el = undefined in the Tree = [1, 12, 23, 24, 100]', function () {
+            //Given
+            const el = undefined;
+            const arr = [1, 12, 23, 24, 100];
+            const expected = undefined;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 1 if set el = 10 in the Tree = undefined', function () {
+            //Given
+            const el = 10;
+            const arr = undefined;
+            const expected = 1;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.set(el, tree);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return array = [-2] if set el = -2 in the Tree = undefined', function () {
+            //Given
+            const el = -2;
+            const arr = undefined;
+            const expected = [-2];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.set(el, tree);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+    });
+
     describe('getSize of the BSTree', function () {
 
         it('should return size = 7, if the Tree = [-1, 0, 5, 19, 25, 29, 31]', function () {
@@ -1196,6 +1555,68 @@ describe('working with BSTree structure', function () {
 
             //When
             let actual = tree.getSize();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+    });
+
+    describe('removing node from the BSTree', function () {
+
+        it('should return size = 7, if remove element = -3 in the Tree = [-3, -2, -1, 5, 19, 25, 29, 31, 35]', function () {
+            //Given
+            const arr = [-3, -2, -1, 5, 19, 25, 29, 31, 35];
+            const expected = 8;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.remove(-3);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return [-2, -1, 5, 19, 25, 29, 31, 35], if remove element = -3 in the Tree = [-3, -2, -1, 5, 19, 25, 29, 31, 35]', function () {
+            //Given
+            const arr = [-3, -2, -1, 5, 19, 25, 29, 31, 35];
+            const expected = [-2, -1, 5, 19, 25, 29, 31, 35];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.remove(-3);
+
+            //When
+            let actual = tree.toArray();
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return size = 7, if remove element = -1 in the Tree = [-3, -2, -1, 5, 19, 25, 29, 31, 35]', function () {
+            //Given
+            const arr = [-3, -2, -1, 5, 19, 25, 29, 31, 35];
+            const expected = 8;
+            const tree = new BinaryTree();
+            tree.init(arr);
+
+            //When
+            let actual = tree.remove(-1);
+
+            //Then
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return [-3, -2, -1, 19, 25, 29, 31, 35], if remove element = 5 in the Tree = [-3, -2, -1, 5, 19, 25, 29, 31, 35]', function () {
+            //Given
+            const arr = [-3, -2, -1, 5, 19, 25, 29, 31, 35];
+            const expected = [-3, -2, -1, 19, 25, 29, 31, 35];
+            const tree = new BinaryTree();
+            tree.init(arr);
+            tree.remove(5);
+
+            //When
+            let actual = tree.toArray();
 
             //Then
             assert.deepEqual(actual, expected);

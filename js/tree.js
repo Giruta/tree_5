@@ -12,15 +12,15 @@ ProtoTree.prototype.push = function (el) {};
 
 ProtoTree.prototype.get = function (val) {};
 
+ProtoTree.prototype.set = function (val, btree) {};
+
 ProtoTree.prototype.getSize = function () {};
 
 ProtoTree.prototype.toArray = function () {};
 
-ProtoTree.prototype.toString = function () {};
-
 ProtoTree.prototype.remove = function (val) {};
 
-ProtoTree.prototype.set = function (index, elem) {};
+ProtoTree.prototype.toString = function () {};
 
 ProtoTree.prototype.getBalance = function () {};
 
@@ -74,9 +74,38 @@ BinaryTree.prototype.init = function (arr) {
 }
 
 // let tree = new BinaryTree();
-
-// console.log('size = ', tree.init([-1, 0, 5, 19, 25, 29, 31, 67]));
+//
+// console.log('size = ', tree.init([-3, -2, -1, 5, 19, 25, 29, 31, 35]));
 // console.log('===', tree);
+
+//------------to array---------------------
+
+BinaryTree.prototype.toArray = function () {
+
+    if(this._root) {
+        return tempArray(this._root);
+    } else {
+        return [];
+    }
+
+    function tempArray(tempNode) {
+        let array = [];
+
+        if (tempNode) {
+            array = array.concat(tempArray(tempNode.left));
+            array.push(tempNode.value);
+            array = array.concat(tempArray(tempNode.right));
+        }
+
+        return array;
+    };
+};
+
+// let tree = new BinaryTree();
+// tree.init([-3, -2, -1, 5, 35]);
+// console.log('toArray = ', tree.toArray());
+
+
 
 //------------push-----------------------
 
@@ -147,6 +176,51 @@ BinaryTree.prototype.get = function (val) {
     }
 }
 
+//--------------set-------------------------
+
+BinaryTree.prototype.set = function (val, btree) {
+    if (!val) return;
+
+    let tempNode = btree._root;
+
+    if (btree === null || tempNode === null) {
+        btree = new Node(val);
+        this._size++;
+        return this._size;
+    } else if (btree) {
+
+        while (val != null) {
+            if (val > tempNode.value) {
+                if (tempNode.right != null) {
+                    tempNode = tempNode.right;
+                } else {
+                    let node = new Node(val);
+                    tempNode.right = node;
+                    this._size++;
+
+                    return this._size;
+                }
+            } else if (val < tempNode.value) {
+                if (tempNode.left != null) {
+                    tempNode = tempNode.left;
+                } else {
+                    let node = new Node(val);
+                    tempNode.left = node;
+                    this._size++;
+
+                    return this._size;
+                }
+            }
+        }
+    }
+}
+
+let tree2 = new BinaryTree();
+tree2.init([]);
+console.log('toArray1 = ', tree2.toArray());
+tree2.set(-2, tree2);
+console.log('toArray1 = ', tree2.toArray());
+
 //-------------remove------------------------
 
 BinaryTree.prototype.remove = function (val) {
@@ -158,8 +232,6 @@ BinaryTree.prototype.remove = function (val) {
         let tempNode = this._root;
         let parentL;
         let parentR;
-
-        let child;
 
         while(tempNode) {
             if (val < tempNode.value) { // идем влево
@@ -176,8 +248,10 @@ BinaryTree.prototype.remove = function (val) {
                         // console.log('temp1=', tempNode);
                         return this._size;
                 } else if (tempNode.left == null && tempNode.right) {
-                    if(parentL) {parentL.left = tempNode.right;}
-                        else if (parentR) {parentR.right = tempNode.right;}
+                    if(parentL) {    // [-1, 0,1,5,19,25,29,31] el=-1
+                        parentL.left = tempNode.right;
+                    }
+                        else if (parentR) {parentR.right = tempNode.right;} //
                         this._size--;
                     // console.log('temp2=', tempNode);
                     return this._size;
@@ -210,8 +284,12 @@ BinaryTree.prototype.remove = function (val) {
     }
 }
 
-// let tree1 = new BinaryTree();
-// // tree.init([0, 5, 19, 25, 29]);
+// let tree = new BinaryTree();
+// tree.init([-3, -2, -1, 5, 19, 25, 29, 31, 35]);
+// console.log('toArray1 = ', tree.toArray());
+// console.log('result = ', tree.remove(-3));
+// console.log('toArray2 = ', tree.toArray());
+
 // console.log('init = ', tree1.init([0, 5, 7, 10, 11, 15, 19, 25, 29]));
 // console.log('root1', this._root);
 //
